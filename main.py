@@ -9,10 +9,11 @@ input_image = input('Enter image file name: ')
 
 # Initialization
 # device = torch.device('cpu')
+# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-PATH = 'D:\File Kuliah\MBKM\Deploy_Model\ML\models\model_Mobilenetv2Neww.pt'
+PATH = 'models\mobilenetv2_model.pt'
 model = Model()
-model.load_state_dict(torch.load(PATH))
+model.load_state_dict(torch.load(PATH), maping_location=torch.device('cpu'))
 model.eval()
 
 # Preprocessing
