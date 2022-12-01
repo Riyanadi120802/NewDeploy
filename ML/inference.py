@@ -2,6 +2,7 @@
 import numpy as np
 import torch
 
+
 class Inference:
     def __init__(self, model, input_prep):
         self.model = model
@@ -12,6 +13,7 @@ class Inference:
             # self.model.eval()
             logits = self.model(self.input_prep)
             ps = torch.exp(logits)
-            _, predTest = torch.max(ps,1)
+            _, predTest = torch.max(ps, 1)
             print("done predicting")
-            print("ps :",ps, "pred :",predTest)
+            print("ps :", _, "pred :", predTest)
+        return predTest
