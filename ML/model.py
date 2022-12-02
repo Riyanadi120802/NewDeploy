@@ -15,7 +15,7 @@ class Model:
     newClassifier = nn.Sequential(
         OrderedDict([
             ('0', nn.Dropout(p=0.2, inplace=False)),
-            ('1', nn.Linear(in_features=1280, out_features=10, bias=True))
+            ('1', nn.Linear(in_features=1280, out_features=11, bias=True))
         ])
     )
 
@@ -26,7 +26,7 @@ class Model:
 
     def load_model(self):
         self.model.load_state_dict(torch.load(
-            "D:\File Kuliah\MBKM\Deploy_Final\ML\models\model_Mobilenetv2New.pt", map_location=torch.device('cpu')))  # torch
+            "D:\File Kuliah\MBKM\Deploy_Final\ML\models\model_terbaruNew.pt", map_location=torch.device('cpu')))  # torch
         self.model.eval()
 
     @property

@@ -11,8 +11,13 @@ from io import BytesIO
 class Preprocessing:
     device = torch.device("cpu")
     image_transforms_test = transforms.Compose([
-        transforms.Resize((64, 64)),
-        transforms.ToTensor(),  # For GPU purpose
+        # merubah ukuran gambar menjadi 256px * 256px
+        transforms.Resize((256, 256)),
+        # memutar gambar secara horizontal yang diberikan secara acak dengan probabilitas tertentu.
+        transforms.RandomHorizontalFlip(),
+        # konversi gambar menjadi tensor
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
 
     def __init__(self, img_name):
