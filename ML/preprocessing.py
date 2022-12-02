@@ -25,7 +25,8 @@ class Preprocessing:
 
     def load_image(self):
 
-        image = Image.open(BytesIO(base64.b64decode(self.img_name)))
+        image = Image.open(
+            BytesIO(base64.b64decode(self.img_name))).convert('RGB')
         # image = Image.open(self.img_name)
         image = self.image_transforms_test(image).float()
         image = image.to(self.device)
